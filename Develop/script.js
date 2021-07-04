@@ -15,6 +15,22 @@ var characterArray = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-"
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+// Function that generates password
+function generatePassword() {
+  enter = parseInt(prompt("How many characters would you like your password to be? You may choose between 8 and 128 characters."));
+  if (!enter) {
+    alert("This needs a value!")
+  } else if (enter < 8 || enter > 128) {
+    enter = parseInt(prompt("You must choose between 8 and 128 characters."));
+
+  } else {
+    confirmNumber = confirm("Will this contain numbers?");
+    confirmCharacter = confirm("Will this contain special characters?");
+    confirmUppercase = confirm("Will this contain UPPERCASE letters?");
+    confirmLowercase = confirm("Will this contain lowercase letters?");
+  };
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
