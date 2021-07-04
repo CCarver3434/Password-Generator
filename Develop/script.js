@@ -21,6 +21,10 @@ var toUpper = function (x) {
 alpha2 = alpha.map(toUpper);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+get.addEventListener("click", function () {
+    ps = generatePassword();
+    document.getElementById("password").placeholder = ps;
+});
 
 // Function that generates password
 function generatePassword() {
