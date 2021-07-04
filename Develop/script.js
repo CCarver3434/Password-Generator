@@ -7,11 +7,18 @@ var confirmUppercase;
 var confirmLowercase;
 // Next, Password Variable Values:
 // Create an array of each type of characters
-var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var numbArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var characterArray = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+var character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// Space if for the uppercase version
+space = [];
 
+var choices;
+// converts letters to uppercase 
+var toUpper = function (x) {
+    return x.toUpperCase();
+};
+alpha2 = alpha.map(toUpper);
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -36,7 +43,7 @@ function generatePassword() {
   // Determine Choices from user input
   // 4 Positive options
   else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
-    choices = character.concat(number, alpha, alpha2);
+    choices = character.concat();
   }
   // Else if for 3 positive options
   else if (confirmCharacter && confirmNumber && confirmUppercase) {
