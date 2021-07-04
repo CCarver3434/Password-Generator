@@ -108,18 +108,8 @@ function generatePassword() {
   return ps;
 }
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
+// This puts the password value into the textbox
+// Changed function input to use textcontent
 function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 
@@ -129,9 +119,7 @@ var copy = document.querySelector("#copy");
 copy.addEventListener("click", function () {
   copyPassword();
 });
-// This copies the password value - works
-// Code example demonstrated in a youtube video: 
-// Source: https://youtu.be/9sT03jEwcaw
+// This copies the password value
 function copyPassword() {
   document.getElementById("password").select();
   document.execCommand("Copy");
