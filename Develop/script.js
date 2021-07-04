@@ -18,9 +18,10 @@ var choices;
 var toUpper = function (x) {
     return x.toUpperCase();
 };
-alpha2 = alpha.map(toUpper);
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+var alpha2 = alpha.map(toUpper);
+
+var get = document.querySelector("#generate");
+
 get.addEventListener("click", function () {
     ps = generatePassword();
     document.getElementById("password").placeholder = ps;
@@ -91,6 +92,20 @@ function generatePassword() {
   else if (confirmLowercase) {
         choices = alpha;
   }
+  else if (confirmUppercase) {
+    choices = space.concat(alpha2);
+  };
+
+  var password = [];
+  // Random selection for all Variables
+  for (var i = 0; i < enter; i++) {
+    var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(pickChoices);
+  }
+  // This joins the password array and converts it to a string
+  var ps = password.join("");
+  UserInput(ps);
+  return ps;
 }
 
 // Write password to the #password input
@@ -104,3 +119,21 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+function UserInput(ps) {
+  document.getElementById("password").textContent = ps;
+
+}
+
+var copy = document.querySelector("#copy");
+copy.addEventListener("click", function () {
+  copyPassword();
+});
+// This copies the password value - works
+// Code example demonstrated in a youtube video: 
+// Source: https://youtu.be/9sT03jEwcaw
+function copyPassword() {
+  document.getElementById("password").select();
+  document.execCommand("Copy");
+  alert("Password copied to clipboard!");
+}
